@@ -1,10 +1,14 @@
 import { nanoid } from "nanoid";
 import { Formik, Field } from "formik";
 import { StyledForm, StyledLabel } from "./ContactForm.styled";
+import { useDispatch } from "react-redux";
+import { addContact } from "redux/contactsSlice";
  
-export const ContactForm = ({addContact}) => {
+export const ContactForm = () => {
   
-const nameId = nanoid();
+  const dispatch = useDispatch();
+
+
   
   return (
     <Formik
@@ -14,12 +18,11 @@ const nameId = nanoid();
       }}
     
       onSubmit={(values, actions) => {
-        
-        addContact({
-          id: nameId,
+        dispatch(addContact({
+          id: nanoid(),
           name: values.name,
           number: values.number
-        })
+        }))
         actions.resetForm();
       }}
     >

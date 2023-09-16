@@ -1,13 +1,14 @@
+import { useDispatch } from "react-redux"
 import { StyledLabel, StyledInput } from "./Filter.styled"
+import { filterContact } from "redux/filterSlice";
 
-export const Filter = ({ filter }) => {
+export const Filter = () => {
+
+    const dispach = useDispatch();
     
-   const handleFilter = (evt) => {
-       filter(evt.currentTarget.value)
-    }
         return (
             <StyledLabel>Find contacts by name
-                <StyledInput onChange={handleFilter} name="filter" />
+                <StyledInput onChange={evt => dispach(filterContact(evt.currentTarget.value))} name="filter" />
             </StyledLabel>
         )    
 }
