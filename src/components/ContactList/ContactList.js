@@ -1,9 +1,7 @@
-import { ContactCard } from "components/ContactCard/ContactCard"
 import { useSelector } from "react-redux"
-
+import { ContactCard } from "components/ContactCard/ContactCard"
 
 export const ContactList = () => {
-
     const contacts = useSelector(state => state.contacts);
     const filter = useSelector(state => state.filter);
     const filterContacts = contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));

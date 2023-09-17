@@ -3,21 +3,7 @@ import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 
-// const initialContacts = () => {
-//   const savedContacts = localStorage.getItem('contacts');
-//   if (savedContacts !== null) {
-//     return JSON.parse(savedContacts);
-//   };
-//   return [];
-// };
-
 export const App = () => {
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-  
-  // const filterContacts = contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
   
   return (
     <div>
@@ -29,5 +15,5 @@ export const App = () => {
       <GlobalStyle />
     </div>
   );
-}
+};
 
