@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field } from "formik";
 import { StyledForm, StyledLabel } from "./ContactForm.styled";
 import { addContact } from "redux/operations";
@@ -6,7 +6,7 @@ import { addContact } from "redux/operations";
 export const ContactForm = () => {
   
   const dispatch = useDispatch();
-
+  const contacts = useSelector(state => state.contacts.items);
   return (
     <Formik
       initialValues={{
@@ -15,6 +15,11 @@ export const ContactForm = () => {
       }}
     
       onSubmit={(values, actions) => {
+        for (const el of contacts) {
+          if (el.name === values.name) {
+            return alert(`${el.name} is already in contacts.`);
+          }
+        }
         dispatch(addContact({
           name: values.name,
           phone: values.number
