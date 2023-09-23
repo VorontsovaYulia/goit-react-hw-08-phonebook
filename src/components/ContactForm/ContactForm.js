@@ -2,11 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field } from "formik";
 import { StyledForm, StyledLabel } from "./ContactForm.styled";
 import { addContact } from "redux/operations";
+import { selectContacts } from "redux/selectors";
  
 export const ContactForm = () => {
   
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
+
   return (
     <Formik
       initialValues={{
