@@ -1,5 +1,4 @@
-// import { useDispatch } from "react-redux";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 // import { ContactForm } from "./ContactForm/ContactForm";
 // import { ContactList } from "./ContactList/ContactList";
 // import { Filter } from "./Filter/Filter";
@@ -11,15 +10,16 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { refreshUser } from "redux/auth/authOperations";
 
 
 export const App = () => {
   const isRefreshing = useSelector(state => state.auth.isRefreshing);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
