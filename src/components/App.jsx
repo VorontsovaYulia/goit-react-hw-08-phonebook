@@ -9,33 +9,38 @@ import LoginPage from "pages/LoginPage";
 import RegisterPage from "pages/RegisterPage";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
+import { PublicRoute } from "./PublicRoute";
+import { PrivateRoute } from "./PrivateRoute";
+import { useSelector } from "react-redux";
 
 
 export const App = () => {
-  
+  const isRefreshing = useSelector(state => state.auth.isRefreshing);
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(fetchContacts());
   // }, [dispatch]);
 
-  return (
-
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+      
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="phonebook" element={<PhonebookPage />} /> 
-     </Route>
+        <Route index element={
+          <PublicRoute redirectTo="phonebook" component={<LoginPage />} />
+        }
+        />
+        <Route path="register" element={
+          <PublicRoute redirectTo="phonebook" component={<RegisterPage />} />
+        }
+        />
+        <Route path="phonebook" element={
+          <PrivateRoute redirectTo="/" component={<PhonebookPage />} />
+        }
+        />
+      </Route>
     </Routes>
-
-    // <div>
-    //   <h1>Phonebook</h1>
-    //   <ContactForm />
-    //   <h2>Contacts</h2>
-    //   <Filter />
-    //   <ContactList />
-    //   <GlobalStyle />
-    // </div>
-  );
+  )
 };
 
