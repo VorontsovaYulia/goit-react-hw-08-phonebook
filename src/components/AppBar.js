@@ -2,19 +2,20 @@ import { NavLink } from "react-router-dom";
 import { UserMenu } from "./UserMenu/UserMenu";
 import { AuthNav } from "./AuthNav/AuthNav";
 import { useSelector } from "react-redux";
+import { StyledNav } from "./AppBar.styled";
 
 export const AppBar = () => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
     return (
         <header>
-            <nav>
-                {isLoggedIn && (
+            <StyledNav>
+               
                     <NavLink to="/phonebook">
-                        Phonebook
+                        <h1>Phonebook</h1>
                     </NavLink>
-                 )}
+                 
                 {isLoggedIn ? <UserMenu /> : <AuthNav />}
-            </nav>
+            </StyledNav>
         </header>
     )
 };

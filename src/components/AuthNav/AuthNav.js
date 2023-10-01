@@ -1,14 +1,17 @@
-import { NavLink } from "react-router-dom"
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import { Container, NavLinkStyled } from "components/AuthNav.styled";
+
 
 export const AuthNav = () => {
     return (
-        <div>
-                <NavLink to="/register">
+        <Container>
+                <NavLinkStyled to="/register">
                     Register
-                </NavLink>
-                <NavLink to="/">
-                    Login
-                </NavLink>
-        </div>
+                </NavLinkStyled>
+            <NavLinkStyled to="/">
+                Login
+                <LoginOutlinedIcon color="#9c27b0" />  
+                </NavLinkStyled>
+        </Container>
     )
 };

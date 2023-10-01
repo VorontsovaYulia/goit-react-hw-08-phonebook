@@ -1,22 +1,20 @@
-import { useEffect } from "react";
-// import { ContactForm } from "./ContactForm/ContactForm";
-// import { ContactList } from "./ContactList/ContactList";
-// import { Filter } from "./Filter/Filter";
-// import { fetchContacts } from "redux/operations";
-import PhonebookPage from "pages/PhonebookPage";
-import LoginPage from "pages/LoginPage";
-import RegisterPage from "pages/RegisterPage";
+import { useEffect, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import { useSelector,useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/authOperations";
+import { fetchContacts } from "redux/operations";
 
+const PhonebookPage = lazy(() => import('pages/PhonebookPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 export const App = () => {
-  const isRefreshing = useSelector(state => state.auth.isRefreshing);
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(state => state.auth.isRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);

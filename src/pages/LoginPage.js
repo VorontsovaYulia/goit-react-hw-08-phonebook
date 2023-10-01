@@ -2,16 +2,15 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { ThemeProvider } from '@mui/material/styles';
-import { defaultTheme } from './RegisterPage';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { defaultTheme } from './RegisterPage';
 import { logIn } from 'redux/auth/authOperations';
 
 const LoginPage = () => {
@@ -73,7 +72,7 @@ const LoginPage = () => {
                         >
                             Sign In
                         </Button>
-                        <Grid container>
+                        <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <Link to="/register" variant="body2">
                                     {"Don't have an account? Sign Up"}

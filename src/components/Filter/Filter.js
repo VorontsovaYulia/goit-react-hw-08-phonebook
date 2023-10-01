@@ -1,14 +1,19 @@
 import { useDispatch } from "react-redux"
-import { StyledLabel, StyledInput } from "./Filter.styled"
+import { TextField } from "@mui/material";
 import { filterContact } from "redux/filterSlice";
 
 export const Filter = () => {
     const dispach = useDispatch();
     
     return (
-        <StyledLabel>Find contacts by name
-            <StyledInput onChange={evt => dispach(filterContact(evt.currentTarget.value))} name="filter" />
-        </StyledLabel>
+        <div>
+            <TextField
+                label="Search contact"
+                id="filled-size-small"
+                variant="filled"
+                size="small"
+                onChange={evt => dispach(filterContact(evt.currentTarget.value))} name="filter"
+            />
+        </div>
     )
 };
-
