@@ -1,7 +1,7 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { UserMenu } from "./UserMenu/UserMenu";
 import { AuthNav } from "./AuthNav/AuthNav";
-import { useSelector } from "react-redux";
 import { StyledNav } from "./AppBar.styled";
 
 export const AppBar = () => {
@@ -10,9 +10,9 @@ export const AppBar = () => {
         <header>
             <StyledNav>
                
-                    <NavLink to="/phonebook">
-                        <h1>Phonebook</h1>
-                    </NavLink>
+                <NavLink to="/phonebook">
+                    <h1>Phonebook</h1>
+                </NavLink>
                  
                 {isLoggedIn ? <UserMenu /> : <AuthNav />}
             </StyledNav>

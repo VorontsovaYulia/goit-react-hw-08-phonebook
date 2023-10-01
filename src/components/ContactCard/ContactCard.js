@@ -1,21 +1,12 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { useDispatch, useSelector } from "react-redux"
-import { Wrapper } from "./ContactCard.styled"
+import { useDispatch} from "react-redux"
 import { deleteContact, updateContact } from "redux/operations";
 import { useState } from 'react';
-import { Field } from 'formik';
-import { TextField, circularProgressClasses } from '@mui/material';
-import { selectContacts } from 'redux/selectors';
+import { TextField } from '@mui/material';
 
 export const ContactCard = ({ item: { name, number, id } }) => {
     const [open, setOpen] = useState(false);
@@ -30,8 +21,10 @@ export const ContactCard = ({ item: { name, number, id } }) => {
         const data = new FormData(evt.currentTarget);
         const newContact = {
             id,
-            contact: {name: data.get('name'),
-            number: data.get('number'),}
+            contact: {
+                name: data.get('name'),
+                number: data.get('number'),
+            }
         };
         console.log(newContact)
         dispach(updateContact(newContact))
@@ -72,16 +65,14 @@ export const ContactCard = ({ item: { name, number, id } }) => {
                         Edit Contact
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit}>
-                    <TextField id="standard-basic" name="name" variant="standard"  defaultValue={name}/>
-                    <TextField id="standard-basic" name="number" variant="standard" defaultValue={number}/>
-                    <Button type='submit'>Done</Button>
+                        <TextField id="standard-basic" name="name" variant="standard" defaultValue={name} />
+                        <TextField id="standard-basic" name="number" variant="standard" defaultValue={number} />
+                        <Button type='submit'>Done</Button>
                     </Box>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     </Typography>
                 </Box>
-            </Modal>
-            
-        </>
-        
+            </Modal> 
+        </> 
     )
 };
