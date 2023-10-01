@@ -7,6 +7,10 @@ import { useDispatch} from "react-redux"
 import { deleteContact, updateContact } from "redux/operations";
 import { useState } from 'react';
 import { TextField } from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Grid from '@mui/material/Grid';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import Avatar from '@mui/material/Avatar';
 
 export const ContactCard = ({ item: { name, number, id } }) => {
     const [open, setOpen] = useState(false);
@@ -45,14 +49,23 @@ export const ContactCard = ({ item: { name, number, id } }) => {
     return (
         <>
             <TableCell component="th" scope="row">
-                {name}
+                <Avatar src="/broken-image.jpg" sx={{backgroundColor: '#1976d2'}} />
             </TableCell>
             <TableCell align="right">{name}</TableCell>
             <TableCell align="right">{number}</TableCell>
-            <TableCell align="right"><button id={id} onClick={(evt) => handleOpenModal()
-            }>Edit</button></TableCell>
-            <TableCell align="right"><button onClick={() => dispach(deleteContact(id))
-            }>Delete</button></TableCell>
+            <TableCell align="right">
+                <Grid item xs={8}>
+                    <EditNoteIcon onClick={(evt) => handleOpenModal()
+                    } />
+                </Grid>
+                
+            </TableCell>
+            <TableCell align="right">
+                <Grid item xs={8}>
+                    <DeleteForeverIcon onClick={() => dispach(deleteContact(id))} />
+                </Grid>
+            </TableCell>
+            
             
             <Modal
                 open={open}
@@ -72,7 +85,7 @@ export const ContactCard = ({ item: { name, number, id } }) => {
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     </Typography>
                 </Box>
-            </Modal> 
-        </> 
+            </Modal>
+        </>
     )
 };
