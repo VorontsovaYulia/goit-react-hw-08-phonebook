@@ -1,5 +1,5 @@
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import { Container, NavLinkStyled } from "components/AuthNav.styled";
+import { Container, NavLinkStyled } from "components/AuthNav/AuthNav.styled";
 
 
 export const AuthNav = () => {

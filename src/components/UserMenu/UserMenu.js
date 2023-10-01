@@ -1,7 +1,7 @@
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "redux/auth/authOperations";
-import { Container } from "components/UserMenu.styled";
+import { Container } from "components/UserMenu/UserMenu.styled";
 
 export const UserMenu = () => {
     const dispatch = useDispatch();

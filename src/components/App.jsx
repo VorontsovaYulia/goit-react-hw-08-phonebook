@@ -1,7 +1,9 @@
 import { useEffect, lazy } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./Layout";
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+import { Layout } from "./Layout/Layout";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import { refreshUser } from "redux/auth/authOperations";
@@ -19,7 +21,9 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Box sx={{ width: '100%', marginTop: 4}}>
+                <LinearProgress />
+            </Box> 
   ) : (
       
     <Routes>

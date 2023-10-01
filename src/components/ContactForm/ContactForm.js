@@ -4,16 +4,16 @@ import { Formik, Field } from "formik";
 import { TextField } from 'formik-mui';
 import Button from '@mui/material/Button';
 import { StyledForm, StyledLabel } from "./ContactForm.styled";
-import { addContact } from "redux/operations";
+import { addContact } from "redux/contacts/operations";
 
 export const ContactForm = () => {
   const NameSchema = Yup.object().shape({
     name: Yup.string()
-      .min(2, 'Too Short!')
-      .max(70, 'Too Long!')
+      .min(3, 'Too Short!')
+      .max(30, 'Too Long!')
       .matches(
         /^[A-Za-zА-Яа-яЄєІіЇїҐґ\s]+$/,
-        'Only alphabets and spaces are allowed'
+        'Use only letters'
       )
       .required('Required'),
     number: Yup.string()

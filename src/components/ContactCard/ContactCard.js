@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch} from "react-redux"
-import { deleteContact, updateContact } from "redux/operations";
+import { deleteContact, updateContact } from "redux/contacts/operations";
 import { useState } from 'react';
 import { TextField } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';

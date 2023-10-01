@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { UserMenu } from "./UserMenu/UserMenu";
-import { AuthNav } from "./AuthNav/AuthNav";
+import { UserMenu } from "../UserMenu/UserMenu";
+import { AuthNav } from "../AuthNav/AuthNav";
 import { StyledNav } from "./AppBar.styled";
 
 export const AppBar = () => {
