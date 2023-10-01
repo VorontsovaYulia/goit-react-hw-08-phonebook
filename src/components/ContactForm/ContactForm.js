@@ -1,11 +1,10 @@
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik, Field } from "formik";
 import { TextField } from 'formik-mui';
 import Button from '@mui/material/Button';
 import { StyledForm, StyledLabel } from "./ContactForm.styled";
 import { addContact } from "redux/operations";
-import { selectContacts } from "redux/selectors";
 
 export const ContactForm = () => {
   const NameSchema = Yup.object().shape({
@@ -22,7 +21,6 @@ export const ContactForm = () => {
       .matches(/^\+?\d{2} ?-?\(?\d{3}\)? ?-?\d{3} ?-?\d{2} ?-?\d{2}$/, 'Intenational format number(12 symbol)'),
   });
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
 
   return (
     <>
