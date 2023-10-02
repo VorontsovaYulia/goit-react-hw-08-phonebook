@@ -6,9 +6,12 @@ export const Container = styled.div`
     flex-wrap: nowrap;
     align-items: baseline;
 `;
+
 export const NavLinkStyled = styled(NavLink)`
     margin-right: 16px;
     display: flex;
     flex-wrap: nowrap;
     gap: 4px;
-`
+    color: #fff;
+    font-size: 20px;
+`;

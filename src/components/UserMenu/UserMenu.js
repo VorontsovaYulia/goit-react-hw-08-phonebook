@@ -1,16 +1,31 @@
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { useDispatch, useSelector } from "react-redux";
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
 import { logOut } from "redux/auth/authOperations";
-import { Container } from "components/UserMenu/UserMenu.styled";
 
 export const UserMenu = () => {
+
+    const isLogin = useSelector(state => state.auth.isLoggedIn);
     const dispatch = useDispatch();
-    const user = useSelector(state => state.auth.user.name);
+    
+    const handleChange = () => {
+        dispatch(logOut());
+    };
+
     return (
-        <Container>
-            <p>Welcome, {user} </p>
-            {/* <button type="button" onClick={() => dispatch(logOut())}>Logout</button> */}
-            <LogoutOutlinedIcon type="button" sx={{ color: '#9c27b0' }} onClick={() => dispatch(logOut())} />
-        </Container>
+        <FormGroup>
+            <FormControlLabel
+                control={
+                    <Switch
+                        checked={isLogin}
+                        disabled={!isLogin ? true : false}
+                        onChange={handleChange}
+                        aria-label="login switch"
+                    />
+                }
+                label={isLogin ? 'Logout' : 'Login'}
+            />
+        </FormGroup>
     )
 };

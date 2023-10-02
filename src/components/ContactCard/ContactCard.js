@@ -1,16 +1,16 @@
+import { useState } from 'react';
+import { useDispatch} from "react-redux"
 import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { useDispatch} from "react-redux"
-import { deleteContact, updateContact } from "redux/contacts/operations";
-import { useState } from 'react';
 import { TextField } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Grid from '@mui/material/Grid';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import Avatar from '@mui/material/Avatar';
+import { deleteContact, updateContact } from "redux/contacts/operations";
 
 export const ContactCard = ({ item: { name, number, id } }) => {
     const [open, setOpen] = useState(false);
@@ -33,7 +33,8 @@ export const ContactCard = ({ item: { name, number, id } }) => {
         console.log(newContact)
         dispach(updateContact(newContact))
         handleCloseModal();
-    }
+    };
+
     const style = {
         position: 'absolute',
         top: '50%',
@@ -49,23 +50,22 @@ export const ContactCard = ({ item: { name, number, id } }) => {
     return (
         <>
             <TableCell component="th" scope="row">
-                <Avatar src="/broken-image.jpg" sx={{ backgroundColor: '#1976d2', margin: '0 auto'}} />
+                <Avatar src="/broken-image.jpg" sx={{ backgroundColor: '#1976d2', margin: '0 auto' }} />
             </TableCell>
             <TableCell align="center">{name}</TableCell>
             <TableCell align="center">{number}</TableCell>
             <TableCell align="center">
                 <Grid item xs={8}>
-                    <EditNoteIcon onClick={(evt) => handleOpenModal()
+                    <EditNoteIcon cursor='pointer' onClick={(evt) => handleOpenModal()
                     } />
                 </Grid>
                 
             </TableCell>
             <TableCell align="center">
                 <Grid item xs={8}>
-                    <DeleteForeverIcon onClick={() => dispach(deleteContact(id))} />
+                    <DeleteForeverIcon cursor='pointer' onClick={() => dispach(deleteContact(id))} />
                 </Grid>
             </TableCell>
-            
             
             <Modal
                 open={open}

@@ -14,7 +14,6 @@ import { contactsReducer } from "./contacts/contactsSlice";
 import { filterReducer } from "./contacts/filterSlice";
 import { authReducer } from "./auth/authSlice";
 
-
 const authPersistConfig = {
   key: 'auth',
   storage,

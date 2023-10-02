@@ -19,6 +19,7 @@ a {
   padding: 0;
   list-style: none;
   text-decoration: none;
+  color: #666666;
 }
 
 button {
