@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from "react-redux";
+import toast, { Toaster } from 'react-hot-toast';
 import { Formik, Field } from "formik";
 import { TextField } from 'formik-mui';
 import Button from '@mui/material/Button';
@@ -7,6 +8,7 @@ import { StyledForm, StyledLabel } from "./ContactForm.styled";
 import { addContact } from "redux/contacts/operations";
 
 export const ContactForm = () => {
+
   const NameSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, 'Too Short!')
@@ -20,6 +22,7 @@ export const ContactForm = () => {
       .required('Required')
       .matches(/^\+?\d{2} ?-?\(?\d{3}\)? ?-?\d{3} ?-?\d{2} ?-?\d{2}$/, 'Intenational format number(12 symbol)'),
   });
+
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items)
 
@@ -35,12 +38,12 @@ export const ContactForm = () => {
         onSubmit={(values, actions) => {
           for (const el of contacts) {
             if (el.name === values.name) {
-              return alert(`${el.name} is already in contacts.`);
+              return toast.error(`${el.name} is already in contacts.`);
             }
           }
           dispatch(addContact({
             name: values.name,
-            number: values.number
+            number: values.number,
           }))
           actions.resetForm();
         }}
@@ -68,6 +71,7 @@ export const ContactForm = () => {
           <Button variant="contained" type="submit">Add contact</Button>
         </StyledForm>
       </Formik>
+      <Toaster position="top-right" />
     </>
   )
 };

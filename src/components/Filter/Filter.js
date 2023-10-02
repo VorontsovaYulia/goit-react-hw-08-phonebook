@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 import { TextField } from "@mui/material";
 import { filterContact } from "redux/contacts/filterSlice";
 
