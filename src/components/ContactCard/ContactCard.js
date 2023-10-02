@@ -50,7 +50,7 @@ export const ContactCard = ({ item: { name, number, id } }) => {
     return (
         <>
             <TableCell component="th" scope="row">
-                <Avatar src="/broken-image.jpg" sx={{ backgroundColor: '#1976d2', margin: '0 auto' }} />
+                <Avatar sx={{ backgroundColor: '#1976d2', margin: '0 auto' }} />
             </TableCell>
             <TableCell align="center">{name}</TableCell>
             <TableCell align="center">{number}</TableCell>
