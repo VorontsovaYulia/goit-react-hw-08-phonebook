@@ -31,12 +31,16 @@ export const App = () => {
           <PublicRoute redirectTo="phonebook" component={<LoginPage />} />
         }
         />
-        <Route path="register" element={
-          <PublicRoute redirectTo="phonebook" component={<RegisterPage />} />
+        <Route path="/register" element={
+          <PublicRoute redirectTo="/phonebook" component={<RegisterPage />} />
         }
         />
-        <Route path="phonebook" element={
+        <Route path="/phonebook" element={
           <PrivateRoute redirectTo="/" component={<PhonebookPage />} />
+        }
+        />
+          <Route path="*" element={
+          <PublicRoute redirectTo="/phonebook" component={<LoginPage />} />
         }
         />
       </Route>
