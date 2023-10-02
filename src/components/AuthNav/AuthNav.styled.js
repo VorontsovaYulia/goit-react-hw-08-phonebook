@@ -14,4 +14,5 @@ export const NavLinkStyled = styled(NavLink)`
     gap: 4px;
     color: #fff;
     font-size: 20px;
+    text-decoration: none;
 `;

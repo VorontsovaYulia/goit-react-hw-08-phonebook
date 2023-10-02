@@ -10,8 +10,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { ThemeProvider } from '@mui/material/styles';
-import { defaultTheme } from './RegisterPage';
+import { defaultTheme } from '../RegisterPage/RegisterPage';
 import { logIn } from 'redux/auth/authOperations';
+import { Span } from './LoginPage.styled';
 
 const LoginPage = () => {
     const dispatch = useDispatch();
@@ -74,8 +75,9 @@ const LoginPage = () => {
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
+                                <Span>Don't have an account?</Span>
                                 <Link to="/register" variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                    Sign Up
                                 </Link>
                             </Grid>
                         </Grid>

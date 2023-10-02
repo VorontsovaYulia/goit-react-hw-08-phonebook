@@ -8,9 +8,9 @@ import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import { refreshUser } from "redux/auth/authOperations";
 
-const PhonebookPage = lazy(() => import('pages/PhonebookPage'));
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const PhonebookPage = lazy(() => import('pages/PhonebookPage/PhonebookPage'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 export const App = () => {
   const dispatch = useDispatch();

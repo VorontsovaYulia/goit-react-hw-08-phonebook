@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { register } from 'redux/auth/authOperations';
+import { Span } from './RegisterPage.styled';
 
 export const defaultTheme = createTheme();
 
@@ -92,8 +93,9 @@ const RegisterPage = () => {
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
+                            <Span>Already have an account?</Span>
                                 <Link to="/" variant="body2">
-                                    Already have an account? Sign in
+                                   Sign in
                                 </Link>
                             </Grid>
                         </Grid>
