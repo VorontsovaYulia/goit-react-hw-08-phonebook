@@ -10,7 +10,9 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Grid from '@mui/material/Grid';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import Avatar from '@mui/material/Avatar';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { deleteContact, updateContact } from "redux/contacts/operations";
+import { StyledBox, Text } from './ContactCard.styled';
 
 export const ContactCard = ({ item: { name, number, id } }) => {
     const [open, setOpen] = useState(false);
@@ -42,7 +44,7 @@ export const ContactCard = ({ item: { name, number, id } }) => {
         transform: 'translate(-50%, -50%)',
         width: 400,
         bgcolor: 'background.paper',
-        border: '2px solid #000',
+        border: '2px solid #1976d2',
         boxShadow: 24,
         p: 4,
     };
@@ -56,7 +58,7 @@ export const ContactCard = ({ item: { name, number, id } }) => {
             <TableCell align="center">{number}</TableCell>
             <TableCell align="center">
                 <Grid item xs={8}>
-                    <EditNoteIcon cursor='pointer' onClick={(evt) => handleOpenModal()
+                    <EditNoteIcon cursor='pointer' onClick={() => handleOpenModal()
                     } />
                 </Grid>
                 
@@ -75,13 +77,13 @@ export const ContactCard = ({ item: { name, number, id } }) => {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Edit Contact
+                        <Text>Edit contact</Text>
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit}>
+                    <StyledBox component="form" onSubmit={handleSubmit}>
                         <TextField id="standard-basic" name="name" variant="standard" defaultValue={name} />
                         <TextField id="standard-basic" name="number" variant="standard" defaultValue={number} />
-                        <Button type='submit'>Done</Button>
-                    </Box>
+                        <Button type='submit'><TaskAltIcon sx={{ fontSize: 40 }} /></Button>
+                    </StyledBox>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     </Typography>
                 </Box>

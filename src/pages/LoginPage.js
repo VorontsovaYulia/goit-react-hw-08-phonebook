@@ -34,7 +34,7 @@ const LoginPage = () => {
                         marginTop: 8,
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: 'center',
+                        alignItems: 'center'
                     }}
                 >
                     <Avatar sx={{ m: 1, bgcolor: '#1976d2' }}>

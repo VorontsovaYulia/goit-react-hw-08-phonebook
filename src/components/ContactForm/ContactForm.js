@@ -71,7 +71,7 @@ export const ContactForm = () => {
           <Button variant="contained" type="submit">Add contact</Button>
         </StyledForm>
       </Formik>
-      <Toaster position="top-right" />
+      <Toaster position="top-center" />
     </>
   )
 };
