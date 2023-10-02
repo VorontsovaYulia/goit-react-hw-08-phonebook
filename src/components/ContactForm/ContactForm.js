@@ -20,7 +20,7 @@ export const ContactForm = () => {
       .required('Required'),
     number: Yup.string()
       .required('Required')
-      .matches(/^\+?\d{2} ?-?\(?\d{3}\)? ?-?\d{3} ?-?\d{2} ?-?\d{2}$/, 'Intenational format number(12 symbol)'),
+      .matches(/^\+?\d{2} ?-?\(?\d{3}\)? ?-?\d{3} ?-?\d{2} ?-?\d{2}$/, 'Intenational format number (12 symbol)'),
   });
 
   const dispatch = useDispatch();
