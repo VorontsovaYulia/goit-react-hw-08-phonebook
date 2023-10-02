@@ -21,11 +21,10 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Box sx={{ width: '100%', marginTop: 4}}>
-                <LinearProgress />
-            </Box> 
+    <Box sx={{ width: '100%', marginTop: 4 }}>
+      <LinearProgress />
+    </Box>
   ) : (
-      
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={

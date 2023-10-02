@@ -49,18 +49,18 @@ export const ContactCard = ({ item: { name, number, id } }) => {
     return (
         <>
             <TableCell component="th" scope="row">
-                <Avatar src="/broken-image.jpg" sx={{backgroundColor: '#1976d2'}} />
+                <Avatar src="/broken-image.jpg" sx={{ backgroundColor: '#1976d2', margin: '0 auto'}} />
             </TableCell>
-            <TableCell align="right">{name}</TableCell>
-            <TableCell align="right">{number}</TableCell>
-            <TableCell align="right">
+            <TableCell align="center">{name}</TableCell>
+            <TableCell align="center">{number}</TableCell>
+            <TableCell align="center">
                 <Grid item xs={8}>
                     <EditNoteIcon onClick={(evt) => handleOpenModal()
                     } />
                 </Grid>
                 
             </TableCell>
-            <TableCell align="right">
+            <TableCell align="center">
                 <Grid item xs={8}>
                     <DeleteForeverIcon onClick={() => dispach(deleteContact(id))} />
                 </Grid>

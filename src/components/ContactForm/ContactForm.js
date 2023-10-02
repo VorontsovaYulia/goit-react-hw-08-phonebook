@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field } from "formik";
 import { TextField } from 'formik-mui';
 import Button from '@mui/material/Button';
@@ -21,6 +21,7 @@ export const ContactForm = () => {
       .matches(/^\+?\d{2} ?-?\(?\d{3}\)? ?-?\d{3} ?-?\d{2} ?-?\d{2}$/, 'Intenational format number(12 symbol)'),
   });
   const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.items)
 
   return (
     <>
@@ -32,6 +33,11 @@ export const ContactForm = () => {
         }}
     
         onSubmit={(values, actions) => {
+          for (const el of contacts) {
+            if (el.name === values.name) {
+              return alert(`${el.name} is already in contacts.`);
+            }
+          }
           dispatch(addContact({
             name: values.name,
             number: values.number
