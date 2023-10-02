@@ -23,7 +23,6 @@ export const ContactCard = ({ item: { name, number, id } }) => {
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.dir(evt.currentTarget)
         const data = new FormData(evt.currentTarget);
         const newContact = {
             id,
@@ -32,7 +31,6 @@ export const ContactCard = ({ item: { name, number, id } }) => {
                 number: data.get('number'),
             }
         };
-        console.log(newContact)
         dispach(updateContact(newContact))
         handleCloseModal();
     };
